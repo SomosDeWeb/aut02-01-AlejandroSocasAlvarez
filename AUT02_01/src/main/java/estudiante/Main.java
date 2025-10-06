@@ -8,13 +8,14 @@ public class Main {
         int selector;
         List<Estudiante> estudiantes = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
+        String nombre;
         do {
             System.out.print("=== Gestor de Estudiantes ===\n1. Añadir estudiante\n2. Listar todos los estudiantes registrados.\n3. Buscar por nombre\n4. Calcular nota media general\n5. Mostrar mejor estudiante\n6. Salir\nSeleccione opción:");
             selector = Integer.parseInt(sc.nextLine());
             switch (selector){
                 case 1:
                     System.out.print("Introduce nombre:");
-                    String nombre = sc.nextLine();
+                    nombre = sc.nextLine();
                     System.out.print("Introduce edad:");
                     int edad = Integer.parseInt(sc.nextLine());
                     System.out.print("Introduce media:");
@@ -30,6 +31,15 @@ public class Main {
                 case 2:
                     for(Estudiante estudiante1 : estudiantes){
                         System.out.println(estudiante1.toString());
+                    }
+                    break;
+                case 3:
+                    System.out.print("Introduce el nombre del estudiante que quiere buscar:");
+                    nombre = sc.nextLine();
+                    for (Estudiante e : estudiantes) {
+                        if (e.getNombre().contains(nombre)) {
+                            System.out.println(e);
+                        }
                     }
                     break;
                 case 6:

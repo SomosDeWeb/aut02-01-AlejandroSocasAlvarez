@@ -1,4 +1,5 @@
 package estudiante;
+import java.util.ArrayList;
 public class Estudiante{
     private String nombre = "";
     private int edad = -1;
@@ -51,3 +52,4 @@ public class Estudiante{
         return getNombre() + " (" + getEdad() + ") - Nota media: " + getMedia() + " - Matriculado: " + getMatricula();
     }
 }
+
