@@ -1,4 +1,4 @@
-package org.example;
+package estudiante;
 public class Estudiante{
     private String nombre = "";
     private int edad = -1;
@@ -39,10 +39,11 @@ public class Estudiante{
         setMedia(media);
         setMatricula(matricula);
     }
-    public static void añadirEstudiante(String Nombre, int edad, float media, boolean matricula){
+    public static Estudiante añadirEstudiante(String Nombre, int edad, float media, boolean matricula){
         Estudiante estudiante = new Estudiante(Nombre, edad, media, matricula);
-        if (estudiante.getNombre().equals("") || estudiante.getEdad() == -1 || estudiante.getMedia() == -1){
+        if (estudiante.getNombre().isEmpty() || estudiante.getEdad() == -1 || estudiante.getMedia() == -1){
             System.out.println("Algún dato no es válido.");
         }
+        return estudiante;
     }
 }

@@ -1,12 +1,15 @@
-package org.example;
+package estudiante;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        int fin = 0;
+        boolean fin = false;
         int selector;
+        List<Estudiante> estudiantes = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.print("=== Gestor de Estudiantes ===\n1. Añadir estudiante\n3. Buscar por nombre\n4. Calcular nota media general\n5. Mostrar mejor estudiante\n6. Salir\nSeleccione opción:");
+            System.out.print("=== Gestor de Estudiantes ===\n1. Añadir estudiante\n2. Listar todos los estudiantes registrados.\n3. Buscar por nombre\n4. Calcular nota media general\n5. Mostrar mejor estudiante\n6. Salir\nSeleccione opción:");
             selector = Integer.parseInt(sc.nextLine());
             switch (selector){
                 case 1:
@@ -18,12 +21,15 @@ public class Main {
                     float media = Float.parseFloat(sc.nextLine());
                     System.out.print("¿Está matriculado? (true/false):");
                     boolean matricula = Boolean.parseBoolean(sc.nextLine());
-                    Estudiante.añadirEstudiante(nombre, edad, media, matricula);
+                    Estudiante estudiante = Estudiante.añadirEstudiante(nombre, edad, media, matricula);
+                    estudiantes.add(estudiante);
+                    break;
                 case 6:
-                    fin = 1;
+                    fin = true;
+                    break;
                 default:
                     System.out.println("La opción introducida no es válida.");
                 }
-        } while(fin == 0);
+        } while(!fin);
     }
 }
