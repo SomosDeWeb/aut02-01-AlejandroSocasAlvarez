@@ -1,9 +1,8 @@
 package org.example;
-
 public class Estudiante{
-    private String nombre;
-    private int edad;
-    private float media;
+    private String nombre = "";
+    private int edad = -1;
+    private float media = -1;
     private Boolean matricula;
 
     public void setNombre(String nombre) {
@@ -20,12 +19,30 @@ public class Estudiante{
     public int getEdad(){
         return edad;
     }
-    public void setMedia(float media){
-        if (media >= 0 && media <= 10){
+    public void setMedia(float media) {
+        if (media >= 0 && media <= 10) {
             this.media = media;
         }
-    public float getMedia(){
-            return media;
+    }
+    public Float getMedia(){
+        return media;
+        }
+    public void setMatricula(boolean matricula){
+        this.matricula = matricula;
+        }
+    public boolean getMatricula(){
+        return matricula;
+    }
+    public Estudiante(String nombre, int edad, float media, boolean matricula){
+        setNombre(nombre);
+        setEdad(edad);
+        setMedia(media);
+        setMatricula(matricula);
+    }
+    public static void añadirEstudiante(String Nombre, int edad, float media, boolean matricula){
+        Estudiante estudiante = new Estudiante(Nombre, edad, media, matricula);
+        if (estudiante.getNombre().equals("") || estudiante.getEdad() == -1 || estudiante.getMedia() == -1){
+            System.out.println("Algún dato  no  es válido.");
         }
     }
 }
