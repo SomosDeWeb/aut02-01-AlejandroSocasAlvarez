@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         boolean fin = false;
         int selector;
+        float media = 0;
         List<Estudiante> estudiantes = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         String nombre;
@@ -19,7 +20,7 @@ public class Main {
                     System.out.print("Introduce edad:");
                     int edad = Integer.parseInt(sc.nextLine());
                     System.out.print("Introduce media:");
-                    float media = Float.parseFloat(sc.nextLine());
+                    media = Float.parseFloat(sc.nextLine());
                     System.out.print("¿Está matriculado? (true/false):");
                     boolean matricula = Boolean.parseBoolean(sc.nextLine());
                     Estudiante estudiante = Estudiante.añadirEstudiante(nombre, edad, media, matricula);
@@ -41,6 +42,14 @@ public class Main {
                             System.out.println(e);
                         }
                     }
+                    break;
+                case 4:
+                    media = 0;
+                    for (Estudiante e : estudiantes) {
+                        media += e.getMedia();
+                    }
+                    media = media / estudiantes.size();
+                    System.out.println(media);
                     break;
                 case 6:
                     fin = true;
