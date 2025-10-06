@@ -42,8 +42,12 @@ public class Estudiante{
     public static Estudiante añadirEstudiante(String Nombre, int edad, float media, boolean matricula){
         Estudiante estudiante = new Estudiante(Nombre, edad, media, matricula);
         if (estudiante.getNombre().isEmpty() || estudiante.getEdad() == -1 || estudiante.getMedia() == -1){
-            System.out.println("Algún dato no es válido.");
+            return null;
         }
-        return estudiante;
+        else
+            return estudiante;
+    }
+    public String toString(){
+        return getNombre() + " (" + getEdad() + ") - Nota media: " + getMedia() + " - Matriculado: " + getMatricula();
     }
 }

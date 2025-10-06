@@ -22,7 +22,15 @@ public class Main {
                     System.out.print("¿Está matriculado? (true/false):");
                     boolean matricula = Boolean.parseBoolean(sc.nextLine());
                     Estudiante estudiante = Estudiante.añadirEstudiante(nombre, edad, media, matricula);
-                    estudiantes.add(estudiante);
+                    if (estudiante != null){
+                        estudiantes.add(estudiante);
+                    }
+                    else System.out.println("No se ha podido crear estudiante.");
+                    break;
+                case 2:
+                    for(Estudiante estudiante1 : estudiantes){
+                        System.out.println(estudiante1.toString());
+                    }
                     break;
                 case 6:
                     fin = true;
