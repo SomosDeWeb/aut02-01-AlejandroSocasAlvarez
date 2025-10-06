@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         boolean fin = false;
         int selector;
-        float media = 0;
+        float media;
         List<Estudiante> estudiantes = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         String nombre;
@@ -50,6 +50,10 @@ public class Main {
                     }
                     media = media / estudiantes.size();
                     System.out.println(media);
+                    break;
+                case 5:
+                    estudiantes.sort(((o1, o2) -> o2.getMedia().compareTo(o1.getMedia())));
+                    System.out.println(estudiantes.getFirst());
                     break;
                 case 6:
                     fin = true;
